@@ -1,11 +1,6 @@
 pkgs <- c("spatstat", "tidyverse", "jsonlite", "here", "caret", "recipes", "precrec", "pROC", "patchwork","styler")
 invisible(lapply(pkgs, require, character.only = TRUE))
 
-prueba <- 
-  read_json(here::here("data", "events", "16073.json"), simplifyVector = TRUE) %>% 
-  as_tibble()
-
-
 
 get_pass_n <- function(data, type = NULL, outcome = NULL) {
   # returns count of pass type

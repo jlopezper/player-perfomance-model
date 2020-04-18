@@ -78,6 +78,16 @@ outcome <- c(
 
 
 
+normalize <- function(x) {
+  return ((x - min(x)) / (max(x) - min(x)))
+}
+
+is_outlier <- function(x) {
+  return(x < quantile(x, 0.25) - 2 * IQR(x) | x > quantile(x, 0.75) + .5 * IQR(x))
+}
+
+
+
 
 create_model_variables <-
   function(matches, events, variable, func, outcome = NA, type = NA) {
